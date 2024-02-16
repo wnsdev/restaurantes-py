@@ -1,18 +1,21 @@
 
 from modelos.restaurante import Restaurante
+from modelos.cardapio.bebida import Bebida
+from modelos.cardapio.prato import Prato
 
-restaurantes = [
-    Restaurante('praça', 'Gourmet'),
-    Restaurante('pizza express', 'Italiana')
-]
+restaurante_praca = Restaurante('praça', 'Gourmet')
 
-restaurantes[1].alternar_status()
-restaurantes[1].receber_avaliacao('Emy', 5)
-restaurantes[1].receber_avaliacao('Erike', 5)
-restaurantes[1].receber_avaliacao('João', 2)
+bebida_suco_de_uva = Bebida('suco de uva', 4.90, '1L')
+bebida_suco_de_uva.aplicar_desconto()
+
+prato_feijoada = Prato('Feijoada', 19.90, 'feijõada bem caprichada e com bastante carne')
+prato_feijoada.aplicar_desconto()
+
+restaurante_praca.adicionar_no_cardapio(bebida_suco_de_uva)
+restaurante_praca.adicionar_no_cardapio(prato_feijoada)
 
 def main():
-    Restaurante.listar_restaurantes()
+    restaurante_praca.exibir_carpio
 
 if __name__  == '__main__':
     main()
